@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Markdown to HTML (Rust + WASM)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Markdown to HTML</h1>
+  <textarea id="markdown-input" rows="10" cols="60" placeholder="Write markdown..."></textarea>
+  <button onclick="convert()">Convert</button>
+  <h2>Output:</h2>
+  <div id="output" class="preview"></div>
+
+  <script type="module">
+    import init, { convert_markdown_to_html } from "./pkg/markdown_to_html_converter.js";
+
+    async function run() {
+      await init(); // Load WASM module
+      window.convert = () => {
+        const md = document.getElementById("markdown-input").value;
+        const html = convert_markdown_to_html(md);
+        document.getElementById("output").innerHTML = html;
+      };
+    }
+
+    run();
+  </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+body {
+  font-family: sans-serif;
+  margin: 2em;
+}
+
+textarea {
+  width: 100%;
+  font-family: monospace;
+}
+
+.preview {
+  background: #f0f0f0;
+  padding: 1em;
+  margin-top: 1em;
+}
